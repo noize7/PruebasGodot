@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://bcphaw74k6d84"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7u8yl"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[ext_resource type="Texture2D" uid="uid://b2g7c1q745xqc" path="res://Texturas/Prototype-Textures/texture_09.png" id="1_1vygb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1vygb"]
+sky_top_color = Color(0.3290054, 0.5387772, 0.9156609, 1)
+sky_horizon_color = Color(0.588049, 0.65919733, 0.83505756, 1)
+sky_curve = 0.054903254
+sun_angle_max = 49.04
+sun_curve = 0.29999986
 
 [sub_resource type="Sky" id="Sky_1vygb"]
-sky_material = SubResource("ProceduralSkyMaterial_7u8yl")
+sky_material = SubResource("ProceduralSkyMaterial_1vygb")
 
 [sub_resource type="Environment" id="Environment_ahmf4"]
 background_mode = 2
@@ -13,7 +18,13 @@ sky = SubResource("Sky_1vygb")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahmf4"]
+albedo_texture = ExtResource("1_1vygb")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_6w77o"]
+material = SubResource("StandardMaterial3D_ahmf4")
 
 [node name="Principal" type="Node3D" unique_id=2083910313]
 
@@ -25,7 +36,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=357575348]
+transform = Transform3D(-8.939401, 0, 0.04097605, 0, 1, 0, -0.06896368, 0, -5.3115106, -0.022620685, 0, 1.3457527)
 mesh = SubResource("BoxMesh_6w77o")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1991772908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3458399)
+transform = Transform3D(-0.99997026, 0, 0.007714346, 0, 1, 0, -0.007714346, 0, -0.99997026, 0.022620685, 2.2414317, -4.518649)
